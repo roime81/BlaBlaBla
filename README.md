@@ -25,8 +25,6 @@ Most productivity tools either feel visually heavy, are too generic, or are lock
 - designed for iterative product experimentation
 - ready to expand with workflow intelligence, documentation, tasks, and automation
 
-This repository is intentionally independent from the earlier Auraxis codebase and acts as a clean foundation for a new direction.
-
 ## Key features
 
 ### Workspace dashboard
@@ -55,28 +53,7 @@ The foundation is structured to support additional features such as:
 
 The interface is intentionally designed to feel like a focused operation center rather than a cluttered dashboard.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ BlaBlaBla                                                             │
-│ Workspace                                   [Share] [Run flow]      │
-├───────────────────────┬────────────────────────────────────────────────────┤
-│ Workspace              │ Operating mode: Creative workspace             │
-│ ─────────────────────  │                                                │
-│ Overview               │ Fresh start, clean foundation.                │
-│ Agents                 │ A product-grade starter workspace for ideas,  │
-│ Files                  │ tasks, and AI-assisted execution.             │
-│ Tasks                  │                                                │
-│ Settings               │ [New Brief] [Summarize] [Draft Plan] [Review PR] │
-│                       │                                                │
-│ Current brief          │ ┌──────────────────────┐ ┌──────────────────┐ │
-│ Product kickoff        │ │ Assistant           │ │ Execution       │ │
-│ 5 active threads       │ │ Welcome...          │ │ Launch workspace│ │
-│                       │ │ User: We need a...  │ │ Write onboarding│ │
-│                       │ │ Assistant: ...     │ │ Plan collaboration│ │
-│                       │ │ Ask BlaBlaBla...   │ │ Today           │ │
-│                       │ └──────────────────────┘ └──────────────────┘ │
-└───────────────────────┴────────────────────────────────────────────────────┘
-```
+![BlaBlaBla workspace dashboard](./docs/interface-mockup.svg)
 
 This mockup reflects the product direction: a calm interface with clear sections for conversation, planning, and execution.
 
@@ -199,4 +176,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Notes
 
-BlaBlaBla is intentionally independent from the old Auraxis codebase and is meant to be a clean-slate product direction focused on desktop productivity, structured workflows, and AI-assisted execution.
+BlaBlaBla is a clean-slate product direction focused on desktop productivity, structured workflows, and AI-assisted execution.
