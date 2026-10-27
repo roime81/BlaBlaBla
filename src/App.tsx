@@ -1,112 +1,118 @@
 import './index.css';
 
-const navItems = [
-  'New chat',
-  'Skills',
-  'Toolbox',
-  'Scheduled tasks',
-  'Task flows',
+const navItems = ['Overview', 'Agents', 'Files', 'Tasks', 'Settings'];
+const quickActions = ['New Brief', 'Summarize', 'Draft Plan', 'Review PR'];
+const taskItems = [
+  { label: 'Product kickoff', status: 'green', text: 'In progress' },
+  { label: 'Launch workspace', status: 'amber', text: 'To do' },
+  { label: 'Write onboarding', status: 'blue', text: 'Actions' },
 ];
-
-const tabs = ['Chat', 'Work', 'Code'];
-const statusPills = ['In progress', 'To do', 'Completed', 'Actions'];
 
 export default function App() {
   return (
-    <div className="auraxis-shell">
-      <header className="topbar">
-        <div className="crumbs">
-          <button className="nav-arrow">←</button>
-          <span className="crumb-item">File</span>
-          <span className="crumb-item">Edit</span>
-          <span className="crumb-item">View</span>
-          <span className="crumb-item">Help</span>
-          <span className="crumb-current">Work deepseek-v4-flash</span>
+    <div className="app-shell">
+      <aside className="sidebar">
+        <div className="brand-block">
+          <div className="brand-mark">B</div>
+          <div>
+            <div className="eyebrow">Workspace</div>
+            <h1>BlaBlaBla</h1>
+          </div>
         </div>
 
-        <div className="toolbar-icons" aria-label="window actions">
-          <span>⎘</span>
-          <span>▢</span>
-          <span>—</span>
-          <span>✕</span>
+        <nav className="nav" aria-label="Sidebar navigation">
+          {navItems.map((item, index) => (
+            <button key={item} className={`nav-item ${index === 0 ? 'active' : ''}`}>
+              {item}
+            </button>
+          ))}
+        </nav>
+
+        <div className="workspace-card">
+          <div className="workspace-label">Current mode</div>
+          <strong>Creative workspace</strong>
         </div>
-      </header>
+      </aside>
 
-      <div className="workspace">
-        <aside className="sidebar">
-          <div className="sidebar-brand-row">
-            <div className="brand-mark">△</div>
-            <div className="brand-name">Auraxis</div>
+      <main className="main-panel">
+        <div className="topbar">
+          <div>
+            <div className="eyebrow">Operations</div>
+            <h2>Workspace dashboard</h2>
           </div>
 
-          <nav className="side-menu" aria-label="Sidebar navigation">
-            {navItems.map((item, index) => (
-              <button key={item} className={`side-item ${index === 0 ? 'active' : ''}`}>
-                <span className="side-icon">
-                  {index === 0 ? '+' : index === 1 ? '✦' : index === 2 ? '▣' : index === 3 ? '◫' : '≡'}
-                </span>
-                {item}
-              </button>
-            ))}
-          </nav>
-
-          <div className="sidebar-footer">
-            <button className="side-item compact" aria-label="More options">≣</button>
-            <div className="user-card">
-              <div className="avatar">A</div>
-              <div className="user-meta">
-                <div className="user-name">After_</div>
-                <div className="user-email">3186611757@qq.com</div>
-              </div>
-            </div>
+          <div className="topbar-actions">
+            <button className="ghost-button">Share</button>
+            <button className="primary-button">Run flow</button>
           </div>
-        </aside>
+        </div>
 
-        <main className="main-panel">
-          <div className="mode-switcher">
-            {tabs.map((tab, index) => (
-              <button key={tab} className={`mode-tab ${index === 0 ? 'active' : ''}`}>
-                <span className="mode-icon">{index === 0 ? '◔' : index === 1 ? '◫' : '◌'}</span>
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          <div className="status-row">
-            {statusPills.map((pill) => (
-              <span key={pill} className="status-pill">
-                {pill}
-              </span>
-            ))}
-          </div>
-
-          <div className="hero-copy">
-            <h1>
-              <span className="spark">✦</span>
-              Good morning, <span className="emphasis">After_</span>
-            </h1>
+        <div className="hero-row">
+          <div className="status-card large">
+            <div className="eyebrow">Operating mode</div>
+            <h3>Fresh start, clean foundation.</h3>
             <p>
-              We streamline your tasks with AI: <span>plan, execute, and track</span>
+              A product-grade starter workspace for ideas, tasks, and AI-assisted execution.
             </p>
           </div>
 
-          <div className="prompt-card">
-            <div className="prompt-label">Describe your task...</div>
-            <div className="prompt-actions">
-              <span className="prompt-plus">＋</span>
-              <span className="prompt-icon">↻</span>
-              <span className="prompt-model">DeepSeek V4 Flash / Research mode</span>
-              <span className="prompt-send">▷</span>
+          <div className="status-card compact">
+            <div className="eyebrow">Momentum</div>
+            <div className="metric">3.2x</div>
+            <p>active execution velocity this sprint</p>
+          </div>
+        </div>
+
+        <div className="quick-actions">
+          {quickActions.map((action) => (
+            <button key={action} className="chip-button">
+              {action}
+            </button>
+          ))}
+        </div>
+
+        <div className="content-grid">
+          <div className="panel">
+            <div className="panel-header">
+              <strong>Conversation</strong>
+              <span className="online-dot">● Online</span>
+            </div>
+
+            <div className="messages">
+              <div className="message assistant">
+                Welcome to BlaBlaBla. We can help shape the brief, break down tasks, and keep the work moving.
+              </div>
+              <div className="message user">
+                We need a clearer product plan for a desktop AI workbench.
+              </div>
+              <div className="message assistant">
+                I can draft the product outline, summarize context, and propose the next working sprint.
+              </div>
+            </div>
+
+            <div className="composer">
+              <input aria-label="Prompt input" value="Ask BlaBlaBla..." readOnly />
+              <button className="primary-button small">Send</button>
             </div>
           </div>
 
-          <div className="bottom-tags">
-            <span>test</span>
-            <span>home</span>
-            <span>documents</span>
+          <div className="panel">
+            <div className="panel-header">
+              <strong>Current tasks</strong>
+              <span className="eyebrow">5 active</span>
+            </div>
+
+            <div className="task-list">
+              {taskItems.map((task) => (
+                <div key={task.label} className="task-item">
+                  <span className={`status-pill ${task.status}`}>{task.text}</span>
+                  <span>{task.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   );
 }
