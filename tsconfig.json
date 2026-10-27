@@ -1,0 +1,8 @@
+// TypeScript config for the browser app
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
