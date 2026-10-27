@@ -63,6 +63,7 @@ export default function App() {
                 <span className="dot amber" />
                 <span className="dot green" />
               </div>
+
               <div className="tab-row">
                 {navItems.map((item) => (
                   <button key={item.label} className={`tab-button ${item.active ? 'active' : ''}`}>
