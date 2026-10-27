@@ -1,83 +1,84 @@
 # BlaBlaBla
 
-BlaBlaBla is a fresh, from-scratch desktop workbench for turning ideas into structured work. It blends a lightweight product dashboard, task orchestration, and AI-assisted planning into a single workspace designed for creative execution.
+BlaBlaBla is a clean, desktop-first workbench for turning ideas into action. It brings together a lightweight dashboard, task tracking, and AI-assisted planning into a single workspace built for modern creative and product work.
 
-Instead of inheriting an older codebase, this project was rebuilt from the ground up as a clean foundation for a modern desktop tool that can evolve into a richer workflow system over time.
+The project is a fresh start: rebuilt from scratch rather than inheriting an older codebase, with a clear focus on usability, modularity, and a foundation for future automation.
 
 ## Product vision
 
-The goal of BlaBlaBla is to provide a focused environment for:
+BlaBlaBla is designed to be a calm, structured workspace where teams and individuals can:
 
-- capturing ideas and briefs
-- creating plans and execution paths
-- tracking active work and tasks
-- interacting with AI assistance in a structured workspace
-- building a desktop-first operating surface for knowledge work
+- capture ideas and briefs
+- plan execution steps
+- monitor active tasks and focus areas
+- interact with an assistant-like workflow layer
+- evolve into a broader AI-powered productivity system over time
 
-This is meant to feel like a workbench, not a cluttered app. The current UI is intentionally minimal, readable, and designed to support future expansion.
+The current version is intentionally polished as a startup-style product shell: minimal, readable, and built to be extended without becoming cluttered.
 
 ## Why this project exists
 
-Many workspaces feel bloated, overly complex, or tightly coupled to legacy systems. BlaBlaBla is intentionally designed to be:
+Most productivity tools either feel visually heavy, are too generic, or are locked into legacy systems. BlaBlaBla aims to provide a more focused alternative:
 
-- clean and easy to navigate
-- modular and extensible
-- desktop-native while still supporting web iteration
-- suitable as a starting point for experimentation and product development
+- fast and easy to navigate
+- desktop-native for real work sessions
+- designed for iterative product experimentation
+- ready to expand with workflow intelligence, documentation, tasks, and automation
 
-The repository currently presents a polished starter shell, with the foundation in place for more advanced productivity flows later.
+This repository is intentionally independent from the earlier Auraxis codebase and acts as a clean foundation for a new direction.
 
-## Core capabilities
+## Key features
 
-### 1. Workspace overview
-A dashboard that gives a high-level view of current activity, workstreams, and focus areas.
+### Workspace dashboard
+A compact overview screen that keeps focus on the current operational context.
 
-### 2. AI-style assistant flow
-A chat-like interaction surface that suggests planning, summarization, and task assistance patterns.
+### AI-assisted planning surface
+A chat-like panel designed for requests such as idea synthesis, summaries, drafting plans, and workflow support.
 
-### 3. Task execution panel
-An area for tracking current tasks, statuses, and execution progress.
+### Task execution view
+A clear list of active work items with visible status indicators and execution momentum.
 
-### 4. Lightweight desktop shell
-Built as an Electron app so it can evolve into a real desktop product instead of just a browser mockup.
+### Desktop app shell
+Built in Electron so the project can evolve into a true desktop application instead of staying as a single-browser prototype.
 
-### 5. Future-ready architecture
-The project is structured to support additional features like:
+### Future-ready extensibility
+The foundation is structured to support additional features such as:
 
-- file and document context
-- agent workflows
-- knowledge capture
-- project planning boards
-- PR/review summaries
-- team collaboration panels
+- project and document management
+- multi-agent execution flows
+- summary and review assistance
+- PR/task context review
+- richer collaboration workflows
+- deeper automation and integrations
 
 ## Interface mockup
 
-The current app is designed as a clean workspace with a sidebar, top operation bar, assistant panel, and execution panel.
+The interface is intentionally designed to feel like a focused operation center rather than a cluttered dashboard.
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│ BlaBlaBla                          [Share] [Run flow]                       │
-├───────────────┬──────────────────────────────────────────────────────────────┤
-│ Workspace      │ Operating mode: Creative workspace                         │
-│ ─────────────  │                                                              │
-│ Overview       │ Fresh start, clean foundation.                              │
-│ Agents         │ The app is rebuilt from scratch with a minimal shell,       │
-│ Files          │ usable workflows, and a strong foundation for AI automation.│
-│ Tasks          │                                                              │
-│ Settings       │ [New Brief] [Summarize] [Draft Plan] [Review PR]            │
-│                │                                                              │
-│ Current brief  │ ┌───────────────────────┐ ┌──────────────────────────┐     │
-│ Product kickoff│ │ Assistant            │ │ Execution               │     │
-│ 5 active      │ │ Welcome...           │ │ Launch workspace        │     │
-│ threads       │ │ User: We need a...   │ │ Write onboarding copy  │     │
-│                │ │ Assistant: ...      │ │ Plan collaboration...   │     │
-│                │ │ Ask BlaBlaBla...    │ │ Today                   │     │
-│                │ └───────────────────────┘ └──────────────────────────┘     │
-└──────────────────────────────────────────────────────────────────────────────┘
+│ BlaBlaBla                                                             │
+│ Workspace                                   [Share] [Run flow]      │
+├───────────────────────┬────────────────────────────────────────────────────┤
+│ Workspace              │ Operating mode: Creative workspace             │
+│ ─────────────────────  │                                                │
+│ Overview               │ Fresh start, clean foundation.                │
+│ Agents                 │ A product-grade starter workspace for ideas,  │
+│ Files                  │ tasks, and AI-assisted execution.             │
+│ Tasks                  │                                                │
+│ Settings               │ [New Brief] [Summarize] [Draft Plan] [Review PR] │
+│                       │                                                │
+│ Current brief          │ ┌──────────────────────┐ ┌──────────────────┐ │
+│ Product kickoff        │ │ Assistant           │ │ Execution       │ │
+│ 5 active threads       │ │ Welcome...          │ │ Launch workspace│ │
+│                       │ │ User: We need a...  │ │ Write onboarding│ │
+│                       │ │ Assistant: ...     │ │ Plan collaboration│ │
+│                       │ │ Ask BlaBlaBla...   │ │ Today           │ │
+│                       │ └──────────────────────┘ └──────────────────┘ │
+└───────────────────────┴────────────────────────────────────────────────────┘
 ```
 
-This mockup reflects the intent of the app: a calm, structured surface where work and assistance coexist without feeling overwhelming.
+This mockup reflects the product direction: a calm interface with clear sections for conversation, planning, and execution.
 
 ## Tech stack
 
@@ -87,17 +88,29 @@ This mockup reflects the intent of the app: a calm, structured surface where wor
 - Electron
 - Electron Builder
 
-This stack keeps the development loop fast while enabling a desktop-first product path.
+This stack provides a fast development loop while keeping the app suitable for desktop packaging and future feature growth.
+
+## Architecture
+
+The project is intentionally lightweight and easy to reason about:
+
+- `src/App.tsx` defines the product shell, navigation, message panels, and task layout
+- `src/index.css` contains the visual design language, layout, and component styling
+- `src/main.tsx` bootstraps the React application into the browser context
+- `electron/main.ts` defines the Electron entry point for desktop behavior
+- `package.json` contains app scripts, dependencies, and Electron build configuration
+
+This is a clean starting point for a product that may eventually add persistence, workflows, automation services, and richer app-state management.
 
 ## Quick start
 
-Install the project dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Run the local web app:
+Start the local web app:
 
 ```bash
 npm run dev
@@ -119,11 +132,11 @@ npm run electron:build
 ## Available scripts
 
 - `npm run dev` — start the Vite development server
-- `npm run build` — compile the frontend bundle for production
-- `npm run preview` — preview the built app locally
-- `npm run electron:prepare` — compile the Electron main process TypeScript
-- `npm run electron:dev` — start the app in Electron development mode
-- `npm run electron:build` — package the app with Electron Builder
+- `npm run build` — build the web application
+- `npm run preview` — preview the production build locally
+- `npm run electron:prepare` — compile Electron main-process TypeScript
+- `npm run electron:dev` — run the app inside Electron with Vite active
+- `npm run electron:build` — build and package the desktop app with Electron Builder
 - `npm start` — launch the built Electron app
 
 ## Project structure
@@ -144,45 +157,41 @@ npm run electron:build
 ├── vite.config.ts
 ├── LICENSE
 ├── README.md
-└── .gitignore
+├── .gitignore
+└── release/    # generated by build output
 ```
-
-## App architecture
-
-The repository is intentionally lightweight and easy to navigate:
-
-- `src/App.tsx` defines the application shell and workspace layout
-- `src/index.css` contains the visual styling and dashboard presentation
-- `src/main.tsx` boots the React app
-- `electron/main.ts` is the Electron entry point for desktop behavior
-- `package.json` defines scripts and build configuration
 
 ## Design principles
 
-BlaBlaBla aims to follow a few simple design principles:
+BlaBlaBla is guided by a few simple principles:
 
 1. Clarity over density
-   Keep the surface readable and calm.
+   Keep the interface readable and intentional.
 
 2. Structure over chaos
-   Group work into clear panels and workstreams.
+   Organize work into clear views and focused panels.
 
 3. Speed over complexity
-   Keep the startup flow fast and easy to iterate.
+   Aim for a fast iteration loop during early development.
 
 4. Extensibility over rigidity
-   Design the app to support future automation and richer workflows.
+   Design the app to evolve into a broader workflow system without a rewrite.
 
-## Project roadmap
+## Roadmap
 
-The app is currently a strong starting point, and the roadmap can evolve in several directions:
+The project is already a strong foundation, and the roadmap can evolve in several directions:
 
-- add real task and project persistence
-- integrate AI-powered planning and summarization flows
-- support document and file context ingestion
-- expand the assistant to help with PR review, planning, and execution
-- add richer desktop integrations and workflows
-- improve onboarding, settings, and collaboration features
+- add persistent task and project storage
+- integrate richer AI workflows and context-aware assistance
+- support document and file-based project context
+- expand the assistant with summarization and review workflows
+- add collaboration and shared-state features
+- improve onboarding, configuration, and settings experiences
+- deepen integrations with external tools and productivity services
+
+## Current status
+
+This repository currently represents a polished product shell and a strong starter foundation. It is ready for experimentation, feature expansion, and further product-level refinement.
 
 ## License
 
@@ -190,4 +199,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Notes
 
-This project is intentionally independent from the previous Auraxis codebase and is being developed as a clean slate with a modern desktop-workbench direction. It is a strong foundation for experimentation and future expansion into AI-assisted productivity tooling.
+BlaBlaBla is intentionally independent from the old Auraxis codebase and is meant to be a clean-slate product direction focused on desktop productivity, structured workflows, and AI-assisted execution.
