@@ -1,124 +1,164 @@
-type Message = {
-  id: number;
-  author: 'assistant' | 'user';
-  text: string;
+import './index.css';
+
+type IconButton = {
+  label: string;
+  active?: boolean;
 };
 
-const initialMessages: Message[] = [
-  { id: 1, author: 'assistant', text: 'Welcome to BlaBlaBla. Build, plan, and ship your next idea.' },
-  { id: 2, author: 'user', text: 'We need a clean UI for a workbench, not a copy of the old app.' },
-  { id: 3, author: 'assistant', text: 'Understood. I designed a fresh starter workspace with a lightweight shell and focused tools.' },
+const navItems: IconButton[] = [
+  { label: 'Chat', active: true },
+  { label: 'Web' },
+  { label: 'Tools' },
+  { label: 'Settings' },
 ];
 
-const quickActions = ['New Brief', 'Summarize', 'Draft Plan', 'Review PR'];
-const tasks = [
-  { title: 'Launch workspace', status: 'Ready', tone: 'green' },
-  { title: 'Write onboarding copy', status: 'In progress', tone: 'amber' },
-  { title: 'Plan collaboration flow', status: 'Queued', tone: 'blue' },
+const actionPills = [
+  'Summarize this document',
+  'Research latest AI trends',
+  'Plan a trip for my family',
+  'Analyze my data',
 ];
+
+const featureCards = [
+  {
+    title: '1. Floating Orb (Collapsed)',
+    tag: 'Small, transparent, frameless, always-on-top.',
+    theme: 'orb',
+  },
+  {
+    title: '2. Web Content (In-app Browser)',
+    tag: 'Opens real webpages within the window with contextual navigation controls.',
+    theme: 'browser',
+  },
+  {
+    title: '3. Window States & Controls',
+    tag: 'Minimize, maximize, restore, close, and quick actions.',
+    theme: 'windows',
+  },
+] as const;
 
 export default function App() {
   return (
-    <div className="app-shell">
-      <aside className="sidebar">
-        <div className="brand-block">
-          <div className="brand-mark">B</div>
-          <div>
-            <div className="eyebrow">Workspace</div>
-            <h1>BlaBlaBla</h1>
+    <div className="aurora-page">
+      <div className="ambient ambient-one" />
+      <div className="ambient ambient-two" />
+
+      <header className="hero-layout">
+        <aside className="brand-sidebar">
+          <div className="brand-mark" aria-label="Aura logo">
+            <span className="brand-ring" />
+          </div>
+          <p className="brand-copy">
+            Your AI companion,
+            <br />
+            always there.
+          </p>
+        </aside>
+
+        <div className="window-stage">
+          <div className="window-shell">
+            <div className="shell-header">
+              <div className="window-dots">
+                <span className="dot red" />
+                <span className="dot amber" />
+                <span className="dot green" />
+              </div>
+              <div className="tab-row">
+                {navItems.map((item) => (
+                  <button key={item.label} className={`tab-button ${item.active ? 'active' : ''}`}>
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="shell-body">
+              <div className="prompt-header">
+                <h2>Hello Roy,</h2>
+                <h3>How can I help you today?</h3>
+              </div>
+
+              <div className="action-row">
+                {actionPills.map((pill) => (
+                  <button key={pill} className="pill-button">
+                    {pill}
+                  </button>
+                ))}
+              </div>
+
+              <div className="composer-box">
+                <span className="composer-hint">Ask me anything...</span>
+                <div className="composer-icons">
+                  <span>◌</span>
+                  <span>⌁</span>
+                  <span>➤</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <nav className="nav">
-          <button className="nav-item active">Overview</button>
-          <button className="nav-item">Agents</button>
-          <button className="nav-item">Files</button>
-          <button className="nav-item">Tasks</button>
-          <button className="nav-item">Settings</button>
-        </nav>
+        <aside className="controls-aside">
+          <div className="mini-heading">Standard window controls</div>
+          <p className="mini-subtitle">(minimize, maximize, restore, close)</p>
 
-        <div className="workspace-card">
-          <div className="workspace-label">Current brief</div>
-          <strong>Product kickoff</strong>
-          <span>5 active threads</span>
-        </div>
-      </aside>
-
-      <main className="main-panel">
-        <header className="topbar">
-          <div>
-            <div className="eyebrow">Operating mode</div>
-            <h2>Creative workspace</h2>
-          </div>
-
-          <div className="topbar-actions">
-            <button className="ghost-button">Share</button>
-            <button className="primary-button">Run flow</button>
-          </div>
-        </header>
-
-        <section className="hero-row">
-          <div className="status-card large">
-            <div className="eyebrow">Signal</div>
-            <h3>Fresh start, clean foundation.</h3>
-            <p>
-              The app is rebuilt from scratch with a minimal shell, usable workflows, and
-              a strong foundation for AI automation.
-            </p>
-          </div>
-
-          <div className="status-card compact">
-            <div className="eyebrow">Focus</div>
-            <div className="metric">12</div>
-            <span>live ideas</span>
-          </div>
-        </section>
-
-        <section className="quick-actions">
-          {quickActions.map((action) => (
-            <button key={action} className="chip-button">
-              {action}
-            </button>
-          ))}
-        </section>
-
-        <section className="content-grid">
-          <div className="panel chat-panel">
-            <div className="panel-header">
-              <span>Assistant</span>
-              <span className="online-dot">● Online</span>
+          <div className="orb-panel">
+            <div className="orb-visual">
+              <div className="orb-sphere" />
             </div>
+          </div>
 
-            <div className="messages">
-              {initialMessages.map((message) => (
-                <div key={message.id} className={`message ${message.author}`}>
-                  {message.text}
+          <ul className="control-list">
+            <li>Floating Orb (Always on top)</li>
+            <li>Draggable</li>
+            <li>Click to open/restore</li>
+            <li>Hide</li>
+            <li>Disable</li>
+            <li>Quit</li>
+          </ul>
+        </aside>
+      </header>
+
+      <main className="feature-grid">
+        {featureCards.map((card) => (
+          <article key={card.title} className="feature-card glass-panel">
+            <h4>{card.title}</h4>
+
+            {card.theme === 'orb' && (
+              <div className="mini-scene orb-scene">
+                <div className="mini-orb" />
+                <div className="floating-actions">
+                  <span />
+                  <span />
+                  <span />
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
 
-            <div className="composer">
-              <input type="text" placeholder="Ask BlaBlaBla to help plan or build…" />
-              <button className="primary-button small">Send</button>
-            </div>
-          </div>
-
-          <div className="panel tasks-panel">
-            <div className="panel-header">
-              <span>Execution</span>
-              <span>Today</span>
-            </div>
-
-            <div className="task-list">
-              {tasks.map((task) => (
-                <div key={task.title} className="task-item">
-                  <div className={`status-pill ${task.tone}`}>{task.status}</div>
-                  <span>{task.title}</span>
+            {card.theme === 'browser' && (
+              <div className="mini-scene browser-scene">
+                <div className="browser-bar">
+                  <span className="browser-dot red" />
+                  <span className="browser-dot amber" />
+                  <span className="browser-dot green" />
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+                <div className="browser-content">
+                  <div className="browser-hero" />
+                </div>
+              </div>
+            )}
+
+            {card.theme === 'windows' && (
+              <div className="mini-scene windows-scene">
+                <div className="sample-window normal" />
+                <div className="sample-window minimized" />
+                <div className="sample-window maximized" />
+              </div>
+            )}
+
+            <p>{card.tag}</p>
+          </article>
+        ))}
       </main>
     </div>
   );
