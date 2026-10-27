@@ -1,115 +1,168 @@
+import { useState } from 'react';
 import './index.css';
+import {
+  conversation,
+  modeTabs,
+  navItems,
+  statusCards,
+  tasks,
+  workspaceMeta,
+} from './data/workspace';
 
-const sidebarItems = ['New chat', 'Skills', 'Templates', 'Settings', 'Run'];
-const modeTabs = ['Chat', 'Work', 'Code'];
-const statusChips = ['In progress', 'To review', 'Done', 'Tasks'];
-const promptTabs = ['test', 'home', 'docs'];
+const modeLabels = modeTabs.map((tab) => tab.label);
+type Mode = (typeof modeLabels)[number];
 
 export default function App() {
+  const [activeNav, setActiveNav] = useState('Overview');
+  const [activeMode, setActiveMode] = useState<Mode>('Chat');
+
   return (
-    <div className="app-viewport">
-      <div className="auraxis-app">
+    <div className="app-shell">
+      <aside className="sidebar">
+        <div className="brand-block">
+          <div className="brand-mark">A</div>
+          <div>
+            <div className="eyebrow">Workspace</div>
+            <h1>BlaBlaBla</h1>
+          </div>
+        </div>
+
+        <nav className="nav" aria-label="Workspace navigation">
+          {navItems.map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={`nav-item ${activeNav === item ? 'active' : ''}`}
+              onClick={() => setActiveNav(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </nav>
+
+        <div className="workspace-card">
+          <span className="workspace-label">Current workflow</span>
+          <strong>{workspaceMeta.workflow}</strong>
+          <span className="workspace-subtle">{workspaceMeta.owner}</span>
+        </div>
+
+        <div className="sidebar-footer">
+          <div className="mini-profile">
+            <div className="avatar">A</div>
+            <div>
+              <strong>After_</strong>
+              <span>3186611757@qq.com</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main className="main-panel">
         <header className="topbar">
-          <div className="breadcrumbs">
-            <button className="back-button" aria-label="Back">←</button>
-            <span className="crumb">File</span>
-            <span className="crumb">Edit</span>
-            <span className="crumb">View</span>
-            <span className="crumb">Help</span>
-            <span className="current-work">Work deepseek-v4-flash</span>
+          <div className="breadcrumbs" aria-label="Breadcrumbs">
+            <button type="button" className="crumb-button" aria-label="Back">
+              ←
+            </button>
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Help</span>
+            <span className="current-work">{workspaceMeta.currentTask}</span>
           </div>
 
-          <div className="window-actions" aria-label="Window controls">
-            <span className="window-icon">◌</span>
-            <span className="window-icon">◫</span>
-            <span className="window-icon">□</span>
-            <span className="window-icon close">×</span>
+          <div className="topbar-actions" aria-label="Top actions">
+            <button type="button" className="ghost-button small">Share</button>
+            <button type="button" className="primary-button small">Run</button>
           </div>
         </header>
 
-        <div className="workspace-shell">
-          <aside className="sidebar">
-            <div className="brand-row">
-              <div className="brand-mark">A</div>
-              <span>BlaBlaBla</span>
+        <section className="hero-row">
+          {statusCards.map((card) => (
+            <div key={card.title} className={`status-card ${card.size === 'large' ? 'large' : ''}`}>
+              <div className="eyebrow">{card.eyebrow}</div>
+              <h3>{card.title}</h3>
+              <div className="metric">{card.metric}</div>
+              <p>{card.description}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="toolbar-row">
+          <div className="mode-switch" role="tablist" aria-label="Mode selector">
+            {modeTabs.map((tab) => (
+              <button
+                key={tab.label}
+                type="button"
+                className={`mode-tab ${activeMode === tab.label ? 'active' : ''}`}
+                onClick={() => setActiveMode(tab.label as Mode)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="status-chips" aria-label="Status chips">
+            {['In progress', 'To review', 'Done', 'Tasks'].map((chip) => (
+              <span key={chip} className="chip">
+                {chip}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section className="content-grid">
+          <div className="panel chat-panel">
+            <div className="panel-header">
+              <div className="panel-title-group">
+                <span className="online-dot">●</span>
+                <strong>{workspaceMeta.model}</strong>
+              </div>
+              <button type="button" className="ghost-button">
+                Export
+              </button>
             </div>
 
-            <nav className="sidebar-nav" aria-label="Sidebar navigation">
-              {sidebarItems.map((item, index) => (
-                <button key={item} className={`sidebar-item ${index === 0 ? 'active' : ''}`}>
-                  {item}
-                </button>
+            <div className="messages" aria-live="polite">
+              {conversation.map((msg) => (
+                <div key={msg.id} className={`message ${msg.role}`}>
+                  {msg.content}
+                </div>
               ))}
-            </nav>
-
-            <div className="sidebar-footer">
-              <button className="sidebar-menu" aria-label="Options">≡</button>
-              <span>No active task</span>
             </div>
 
-            <div className="profile-block">
-              <div className="avatar">A</div>
-              <div className="profile-meta">
-                <strong>After_</strong>
-                <span>3186611757@qq.com</span>
-              </div>
+            <div className="composer">
+              <button type="button" className="prompt-button" aria-label="Add content">
+                +
+              </button>
+              <input type="text" defaultValue="Describe your task..." aria-label="Task input" />
+              <button type="button" className="primary-button">
+                Send
+              </button>
             </div>
-          </aside>
+          </div>
 
-          <main className="canvas">
-            <div className="toolbar-row">
-              <div className="mode-switch" role="tablist" aria-label="Mode selector">
-                {modeTabs.map((tab, index) => (
-                  <button key={tab} className={`mode-tab ${index === 0 ? 'active' : ''}`}>
-                    {tab}
-                  </button>
-                ))}
-              </div>
-
-              <div className="status-chips">
-                {statusChips.map((chip) => (
-                  <span key={chip} className="chip">
-                    {chip}
-                  </span>
-                ))}
-              </div>
+          <div className="panel task-panel">
+            <div className="panel-header">
+              <strong>Active tasks</strong>
+              <button type="button" className="ghost-button small">
+                New task
+              </button>
             </div>
 
-            <div className="hero-content">
-              <h1>
-                Good morning, <span>After_</span>
-              </h1>
-              <p>
-                Let’s make the workflow easier: AI, chat, tasks, and context — all in one place.
-              </p>
-            </div>
-
-            <div className="prompt-panel">
-              <div className="prompt-box">
-                <div className="prompt-left">
-                  <button className="prompt-action add" aria-label="Add">＋</button>
-                  <button className="prompt-action" aria-label="Attachment">⌁</button>
+            <div className="task-list">
+              {tasks.map((task) => (
+                <div key={task.id} className="task-item">
+                  <div className="task-meta">
+                    <strong>{task.title}</strong>
+                    <span>{task.owner}</span>
+                  </div>
+                  <span className={`status-pill ${task.statusClass}`}>{task.status}</span>
                 </div>
-
-                <div className="prompt-input">Describe your task...</div>
-
-                <div className="prompt-right">
-                  <span className="prompt-tag">DeepSeek V4 Flash</span>
-                  <button className="send-button" aria-label="Send">▶</button>
-                </div>
-              </div>
-
-              <div className="prompt-tabs">
-                {promptTabs.map((tab) => (
-                  <button key={tab} className="prompt-tab">
-                    {tab}
-                  </button>
-                ))}
-              </div>
+              ))}
             </div>
-          </main>
-        </div>
-      </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
