@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">BlaBlaBla desktop workspace dashboard</title>
+  <desc id="desc">A polished desktop AI workbench interface with sidebar, top navigation, prompt area, and task list.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111D"/>
+      <stop offset="1" stop-color="#0D1728"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#020817" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+  <circle cx="230" cy="130" r="230" fill="#7C3AED" opacity="0.18"/>
+  <circle cx="1460" cy="180" r="260" fill="#2563EB" opacity="0.16"/>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="70" width="1460" height="840" rx="34" fill="#0B1320" fill-opacity="0.75" stroke="#334155" stroke-opacity="0.8"/>
+  </g>
+
+  <g>
+    <rect x="110" y="110" width="290" height="760" rx="28" fill="#0F172A" stroke="#253349"/>
+    <rect x="145" y="150" width="46" height="46" rx="15" fill="url(#accent)"/>
+    <text x="210" y="182" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="28" font-weight="700">BlaBlaBla</text>
+    <text x="210" y="211" fill="#8AA3C6" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.5">WORKSPACE</text>
+
+    <g fill="#DCE7F8" font-family="Arial, sans-serif" font-size="18">
+      <rect x="140" y="265" width="230" height="44" rx="12" fill="#1E293B"/>
+      <text x="170" y="294">Overview</text>
+      <rect x="140" y="325" width="230" height="44" rx="12" fill="#111827"/>
+      <text x="170" y="354">Agents</text>
+      <rect x="140" y="385" width="230" height="44" rx="12" fill="#111827"/>
+      <text x="170" y="414">Files</text>
+      <rect x="140" y="445" width="230" height="44" rx="12" fill="#111827"/>
+      <text x="170" y="474">Tasks</text>
+      <rect x="140" y="505" width="230" height="44" rx="12" fill="#111827"/>
+      <text x="170" y="534">Settings</text>
+    </g>
+
+    <rect x="140" y="610" width="230" height="130" rx="20" fill="#111B2B" stroke="#304562"/>
+    <text x="160" y="646" fill="#8AA3C6" font-family="Arial, sans-serif" font-size="12" letter-spacing="2">CURRENT MODE</text>
+    <text x="160" y="685" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="30" font-weight="700">Creative</text>
+    <text x="160" y="715" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="30" font-weight="700">workspace</text>
+  </g>
+
+  <g>
+    <rect x="435" y="110" width="1005" height="760" rx="28" fill="#0F172A" stroke="#253349"/>
+
+    <g>
+      <rect x="480" y="145" width="220" height="54" rx="18" fill="#0B1320" stroke="#334155"/>
+      <text x="510" y="180" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="18">Workspace</text>
+      <circle cx="650" cy="172" r="5" fill="#7DD3FC"/>
+      <circle cx="670" cy="172" r="5" fill="#FCD34D"/>
+    </g>
+
+    <g fill="#DCE7F8" font-family="Arial, sans-serif" font-weight="600">
+      <rect x="1170" y="150" width="112" height="42" rx="12" fill="#1E293B"/>
+      <text x="1208" y="177">Share</text>
+      <rect x="1295" y="150" width="118" height="42" rx="12" fill="url(#accent)"/>
+      <text x="1332" y="177">Run flow</text>
+    </g>
+
+    <g>
+      <rect x="480" y="235" width="760" height="180" rx="24" fill="#111C2D" stroke="#324866"/>
+      <text x="510" y="272" fill="#8AA3C6" font-family="Arial, sans-serif" font-size="13" letter-spacing="2">OPERATING MODE</text>
+      <text x="510" y="330" fill="#ECF3FF" font-family="Arial, sans-serif" font-size="36" font-weight="700">Fresh start, clean foundation.</text>
+      <text x="510" y="368" fill="#B9CBDF" font-family="Arial, sans-serif" font-size="20">A product-grade starter workspace for ideas, tasks, and AI-assisted execution.</text>
+    </g>
+
+    <g>
+      <rect x="1288" y="235" width="112" height="180" rx="24" fill="#111C2D" stroke="#324866"/>
+      <text x="1318" y="278" fill="#8AA3C6" font-family="Arial, sans-serif" font-size="13" letter-spacing="2">MOMENTUM</text>
+      <text x="1320" y="344" fill="#ECF3FF" font-family="Arial, sans-serif" font-size="44" font-weight="700">3.2x</text>
+      <text x="1310" y="380" fill="#B9CBDF" font-family="Arial, sans-serif" font-size="12">active execution</text>
+      <text x="1320" y="400" fill="#B9CBDF" font-family="Arial, sans-serif" font-size="12">velocity</text>
+    </g>
+
+    <g>
+      <rect x="480" y="455" width="920" height="56" rx="16" fill="#101A2A" stroke="#2D3E58"/>
+      <rect x="498" y="472" width="134" height="24" rx="12" fill="#1E293B"/>
+      <text x="530" y="490" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="15">New Brief</text>
+      <rect x="645" y="472" width="142" height="24" rx="12" fill="#1E293B"/>
+      <text x="682" y="490" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="15">Summarize</text>
+      <rect x="800" y="472" width="152" height="24" rx="12" fill="#1E293B"/>
+      <text x="833" y="490" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="15">Draft Plan</text>
+      <rect x="966" y="472" width="150" height="24" rx="12" fill="#1E293B"/>
+      <text x="997" y="490" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="15">Review PR</text>
+    </g>
+
+    <g>
+      <rect x="480" y="545" width="700" height="260" rx="24" fill="#111C2D" stroke="#324866"/>
+      <text x="510" y="578" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18" font-weight="700">Conversation</text>
+      <circle cx="1115" cy="570" r="6" fill="#34D399"/>
+      <text x="1130" y="578" fill="#8AA3C6" font-family="Arial, sans-serif" font-size="12">Online</text>
+
+      <rect x="510" y="600" width="360" height="72" rx="18" fill="#1D4ED8" fill-opacity="0.12" stroke="#3B82F6" stroke-opacity="0.30"/>
+      <text x="535" y="642" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18">Welcome to BlaBlaBla. Let’s turn the brief into action.</text>
+
+      <rect x="700" y="688" width="330" height="60" rx="18" fill="#8B5CF6" fill-opacity="0.14" stroke="#A78BFA" stroke-opacity="0.3"/>
+      <text x="724" y="727" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18">We need a sharper product plan for the desktop app.</text>
+
+      <rect x="510" y="690" width="420" height="72" rx="18" fill="#1D4ED8" fill-opacity="0.12" stroke="#3B82F6" stroke-opacity="0.30"/>
+      <text x="535" y="732" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18">I can draft the outline, summarize context, and propose the next sprint.</text>
+
+      <rect x="510" y="785" width="570" height="42" rx="14" fill="#0B1320" stroke="#334155"/>
+      <text x="533" y="812" fill="#8AA3C6" font-family="Arial, sans-serif" font-size="18">Ask BlaBlaBla...</text>
+      <rect x="1092" y="787" width="98" height="38" rx="12" fill="url(#accent)"/>
+      <text x="1128" y="812" fill="#FFF" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Send</text>
+    </g>
+
+    <g>
+      <rect x="1210" y="545" width="190" height="260" rx="24" fill="#111C2D" stroke="#324866"/>
+      <text x="1240" y="578" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="18" font-weight="700">Current tasks</text>
+      <text x="1360" y="581" fill="#8AA3C6" font-family="Arial, sans-serif" font-size="12">5 active</text>
+
+      <g fill="#E2E8F0" font-family="Arial, sans-serif" font-size="16">
+        <rect x="1240" y="603" width="96" height="26" rx="13" fill="#22C55E" fill-opacity="0.15"/>
+        <text x="1272" y="621" fill="#86EFAC" text-anchor="middle">In progress</text>
+        <text x="1240" y="664">Product kickoff</text>
+
+        <rect x="1240" y="687" width="80" height="26" rx="13" fill="#F59E0B" fill-opacity="0.15"/>
+        <text x="1280" y="705" fill="#FBBF24" text-anchor="middle">To do</text>
+        <text x="1240" y="748">Launch workspace</text>
+
+        <rect x="1240" y="771" width="85" height="26" rx="13" fill="#3B82F6" fill-opacity="0.15"/>
+        <text x="1282" y="789" fill="#93C5FD" text-anchor="middle">Actions</text>
+        <text x="1240" y="832">Write onboarding</text>
+      </g>
+    </g>
+  </g>
+</svg>
