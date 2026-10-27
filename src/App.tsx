@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css';
 import {
   conversation,
@@ -11,10 +11,95 @@ import {
 
 const modeLabels = modeTabs.map((tab) => tab.label);
 type Mode = (typeof modeLabels)[number];
+type ViewMode = 'chat' | 'browser' | 'orb';
 
 export default function App() {
   const [activeNav, setActiveNav] = useState('Overview');
   const [activeMode, setActiveMode] = useState<Mode>('Chat');
+  const [viewMode, setViewMode] = useState<ViewMode>('chat');
+  const [pageUrl, setPageUrl] = useState('https://example.com');
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'orb') {
+      setViewMode('orb');
+      return;
+    }
+    if (hash === 'browser') {
+      setViewMode('browser');
+    }
+  }, []);
+
+  const handleOpenPage = async () => {
+    try {
+      await window.blablabla?.openPage(pageUrl);
+      setViewMode('browser');
+      window.location.hash = 'browser';
+    } catch {
+      setViewMode('browser');
+    }
+  };
+
+  const handleBackToChat = async () => {
+    try {
+      await window.blablabla?.backToChat();
+    } catch {
+      // no-op in the mock renderer shell
+    }
+    setViewMode('chat');
+    window.location.hash = 'chat';
+  };
+
+  const handleClosePage = async () => {
+    try {
+      await window.blablabla?.backToChat();
+    } catch {
+      // no-op in the mock renderer shell
+    }
+    setViewMode('chat');
+    window.location.hash = 'chat';
+  };
+
+  if (viewMode === 'orb') {
+    return (
+      <div className="orb-shell">
+        <button
+          type="button"
+          className="orb-button"
+          onClick={() => {
+            setViewMode('chat');
+            window.location.hash = 'chat';
+            void window.blablabla?.openOrb?.();
+          }}
+        >
+          A
+        </button>
+      </div>
+    );
+  }
+
+  if (viewMode === 'browser') {
+    return (
+      <div className="browser-shell">
+        <header className="browser-header">
+          <div className="browser-controls">
+            <button type="button" className="ghost-button small" onClick={handleBackToChat}>Back to Chat</button>
+            <button type="button" className="ghost-button small" onClick={handleClosePage}>Close Page</button>
+          </div>
+          <div className="browser-url">{pageUrl}</div>
+        </header>
+        <div className="browser-surface">
+          <div className="browser-page-mock">
+            <div className="browser-toolbar" />
+            <div className="browser-page-content">
+              <h2>Web content</h2>
+              <p>{pageUrl}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="app-shell">
@@ -72,7 +157,7 @@ export default function App() {
 
           <div className="topbar-actions" aria-label="Top actions">
             <button type="button" className="ghost-button small">Share</button>
-            <button type="button" className="primary-button small">Run</button>
+            <button type="button" className="primary-button small" onClick={handleOpenPage}>Run</button>
           </div>
         </header>
 
@@ -117,8 +202,8 @@ export default function App() {
                 <span className="online-dot">●</span>
                 <strong>{workspaceMeta.model}</strong>
               </div>
-              <button type="button" className="ghost-button">
-                Export
+              <button type="button" className="ghost-button" onClick={handleOpenPage}>
+                Open page
               </button>
             </div>
 
@@ -134,8 +219,8 @@ export default function App() {
               <button type="button" className="prompt-button" aria-label="Add content">
                 +
               </button>
-              <input type="text" defaultValue="Describe your task..." aria-label="Task input" />
-              <button type="button" className="primary-button">
+              <input type="text" value={pageUrl} onChange={(event) => setPageUrl(event.target.value)} aria-label="Task input" />
+              <button type="button" className="primary-button" onClick={handleOpenPage}>
                 Send
               </button>
             </div>
