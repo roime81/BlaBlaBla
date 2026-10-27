@@ -27,7 +27,9 @@ export default function App() {
     }
     if (hash === 'browser') {
       setViewMode('browser');
+      return;
     }
+    setViewMode('chat');
   }, []);
 
   const handleOpenPage = async () => {
@@ -37,6 +39,7 @@ export default function App() {
       window.location.hash = 'browser';
     } catch {
       setViewMode('browser');
+      window.location.hash = 'browser';
     }
   };
 
@@ -44,7 +47,7 @@ export default function App() {
     try {
       await window.blablabla?.backToChat();
     } catch {
-      // no-op in the mock renderer shell
+      // no-op in the web shell
     }
     setViewMode('chat');
     window.location.hash = 'chat';
@@ -54,7 +57,7 @@ export default function App() {
     try {
       await window.blablabla?.backToChat();
     } catch {
-      // no-op in the mock renderer shell
+      // no-op in the web shell
     }
     setViewMode('chat');
     window.location.hash = 'chat';
@@ -88,6 +91,7 @@ export default function App() {
           </div>
           <div className="browser-url">{pageUrl}</div>
         </header>
+
         <div className="browser-surface">
           <div className="browser-page-mock">
             <div className="browser-toolbar" />
@@ -202,9 +206,7 @@ export default function App() {
                 <span className="online-dot">●</span>
                 <strong>{workspaceMeta.model}</strong>
               </div>
-              <button type="button" className="ghost-button" onClick={handleOpenPage}>
-                Open page
-              </button>
+              <button type="button" className="ghost-button" onClick={handleOpenPage}>Open page</button>
             </div>
 
             <div className="messages" aria-live="polite">
@@ -219,7 +221,12 @@ export default function App() {
               <button type="button" className="prompt-button" aria-label="Add content">
                 +
               </button>
-              <input type="text" value={pageUrl} onChange={(event) => setPageUrl(event.target.value)} aria-label="Task input" />
+              <input
+                type="text"
+                value={pageUrl}
+                onChange={(event) => setPageUrl(event.target.value)}
+                aria-label="Task input"
+              />
               <button type="button" className="primary-button" onClick={handleOpenPage}>
                 Send
               </button>
